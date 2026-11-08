@@ -1,0 +1,81 @@
+.\" Wyświetl za pomocą: groff -man -Tutf8 termipet.1 | less
+.TH TERMIPET 1 "13 czerwca 2025" "TermiPet Assistant" "Narzędzia użytkownika"
+.SH NAZWA
+termipet \- terminalowy asystent użytkownika z funkcjami analizy nastroju, porządkowania plików i raportowania
+.SH SKŁADNIA
+.B termipet
+[\-h] [\-v] [\-r] [\-z]
+.SH OPIS
+.B TermiPet Assistant
+to interaktywny skrypt Bash uruchamiany w terminalu, którego celem jest uprzyjemnienie pracy użytkownika poprzez integrację zabawnego zwierzaka-asystenta systemowego. Skrypt oferuje pomoc w analizie nastroju, organizacji zdjęć i katalogów, generowaniu codziennych raportów oraz wykonywaniu działań porządkowych.
+
+.SH OPCJE
+.TP
+.B \-h
+Wyświetla skróconą pomoc i listę dostępnych opcji.
+.TP
+.B \-v
+Wyświetla wersję skryptu oraz dane autora.
+.TP
+.B \-r
+Uruchamia menu wyboru różnych działań porządkowych oraz utworzenie raportu bez interakcji z użytkownikiem.
+.TP
+.B \-z
+Umożliwia zmianę aktywnego zwierzaka (pies, kot, królik).
+
+.SH DZIAŁANIE
+Po uruchomieniu bez opcji, skrypt przeprowadza użytkownika przez serię kroków:
+.IP \(bu 2
+Wyświetla komunikat powitalny z nazwą wybranego zwierzaka.
+.IP \(bu 2
+Pyta o nastrój użytkownika i zapisuje odpowiedź.
+.IP \(bu 2
+Proponuje wykonanie mikro-zadania lub pytania refleksyjnego.
+.IP \(bu 2
+Analizuje aktywność użytkownika w aplikacjach i zlicza czas spędzony na pracy.
+.IP \(bu 2
+Pomaga w sprzątaniu katalogów – pokazuje duże pliki, pliki tymczasowe i umożliwia ich usunięcie.
+.IP \(bu 2
+Organizuje zdjęcia, porządkując je według daty z metadanych EXIF.
+.IP \(bu 2
+Generuje dzienny raport i zapisuje go na pulpicie.
+.IP \(bu 2
+Prezentuje losowy cytat dnia z pliku motywacyjnego.
+.IP \(bu 2
+Zamyka skrypt po potwierdzeniu, czyszcząc dane tymczasowe.
+
+.SH PLIKI
+.TP
+.I ~/.termipet.rc
+Plik konfiguracyjny użytkownika, w którym zapisywane są dane takie jak typ zwierzaka, ostatnie logi i ustawienia użytkownika.
+.TP
+.I ~/Pulpit/raport_TermiPet_YYYYMMDD_HHMM.txt
+Codzienny raport z działań użytkownika, generowany automatycznie.
+.TP
+.I /tmp/termipet-XXXXXX
+Tymczasowy katalog roboczy tworzony przy każdym uruchomieniu skryptu.
+
+.SH WYMAGANIA
+Program wymaga zainstalowanych narzędzi:
+.IP \(bu 2
+.B bash
+.IP \(bu 2
+.B dialog
+.IP \(bu 2
+.B zenity
+.IP \(bu 2
+.B find, grep, sort, sed, cut, head, uniq, wc
+.IP \(bu 2
+.B exiftool (do organizacji zdjęć na podstawie metadanych)
+
+.SH AUTOR
+Aleksandra Janiuk <ola.janiuk2@gmail.com>
+
+.SH ZOBACZ TAKŻE
+.BR bash (1),
+.BR find (1),
+.BR grep (1),
+.BR dialog (1),
+.BR zenity (1),
+.BR exiftool (1)
+
